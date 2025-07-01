@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #maindiv {
+            display: flex;
+            gap: 20px;
+        }
+        .id1{
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            gap: 5px;
+        }
+        .cart{
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            gap: 5px;
+        }
+        h1{
+            text-align: center;
+        }
+        #p2{
+            color: green;
+            background-color: bisque;
+        }
+
+    </style>
+</head>
+
+<body>
+    <img id="preview" width="200" src=""/>
+    <div>
+        <form>
+            <label>Product Name</label>
+            <input type="text" placeholder="product name" id="productname"><br><br>
+
+            <label>Product Price</label>
+            <input type="text" placeholder="product price" id="productprice"><br><br>
+
+            <label>Product Quan</label>
+            <input type="text" placeholder="Quantity" id="productquantity"><br><br>
+            
+            <label>Product Image</label>
+            <input type="file" id="upload" accept="image/*"><br><br>
+            <button id="uploadbutton">Add New Product</button>
+        </form><br>
+    </div>
+    <h1>All Products</h1>
+    <div id="maindiv">
+        <div class="productdiv">
+            <img src="./images/iphon.jpg" alt="" height="200" width="200">
+            <p>Mobile Phon</p>
+            <p data-value="30">Price : 30</p>
+            <p data-value="10">Quantity : 10</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="productdiv">
+            <img src="./images/laptop.jpg" alt="" height="200" width="200">
+            <p>Laptop</p>
+            <p data-value="50">Price : 50</p>
+            <p data-value="5">Quantity : 5</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="productdiv">
+            <img src="./images/horror.jpg" alt="" height="200" width="200">
+            <p>Book</p>
+            <p data-value="10">Price : 10</p>
+            <p data-value="8">Quantity : 8</p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+    <p id="p2">Total Cost :</p>
+    <p id="totalprice">0</p><br>
+    <button id="promo">Save 15% Here</button><br>
+    <p id="p1"></p><br>
+    <h1>Cart Products</h1>
+    <div id="cartproducts">
+        <div class="id1">
+            <span>Product Name </span>
+            <span>Product Image</span>
+            <span>Price</span>
+            <span>Quantity</span>
+            <span>Add One</span>
+            <span>Remove One</span>
+            <span>Total Price</span>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

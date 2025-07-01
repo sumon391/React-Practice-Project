@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>To Do App</h1>
+    <input type="text" id="input">
+    <button id="button">Add Task</button>
+    <div id="main">
+    </div>
+</body>
+<script>
+    let button = document.getElementById("button");
+    button.style.backgroundColor = 'green';
+    let input = document.getElementById("input");
+    let div = document.getElementById("main");
+    let task = "";
+    div.addEventListener("click", (e) => {
+        e.preventDefault();
+        let item = e.target;
+        if (item.innerText == "Delete")
+            div.removeChild(item.parentElement);
+    })
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
+        task=input.value;
+        let new_element = document.createElement("div");
+
+        let p = document.createElement("p");
+        p.innerText = task;
+
+        let remove = document.createElement("button");
+        remove.innerText = "Delete";
+        remove.style.backgroundColor = 'red';
+        new_element.appendChild(p);
+        new_element.appendChild(remove);
+        if (task.trim())
+            div.appendChild(new_element);
+        task = "";
+        input.value = "";
+    })
+    // input.addEventListener("change", (e) => {
+    //     task = input.value;
+    //     e.preventDefault();
+    // })
+</script>
+
+</html>

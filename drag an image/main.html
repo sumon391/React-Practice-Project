@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #dropitem {
+            background-color: red;
+            height: 200px;
+            width: 200px;
+        }
+
+        #dropitem {
+            height: 200px;
+            width: 200px;
+        }
+
+        #div1 {
+            background-color: aqua;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <img id="dragitem" src="images.png" draggable="true" width="100">
+    </div>
+    <div id="dropitem">drop</div>
+    <script>
+        let div1 = document.getElementById("div1");
+        let drag = document.getElementById("dragitem");
+        let drop = document.getElementById("dropitem");
+        console.log(div1);
+        div1.addEventListener("dragstart", (e) => {
+            e.dataTransfer.setData("text/html", e.target.outerHTML);
+        })
+        drop.addEventListener("dragover", (e) => {
+            e.preventDefault();
+        })
+        drop.addEventListener("drop", (e) => {
+            e.preventDefault();
+            let html = e.dataTransfer.getData("text/html");
+            drop.innerHTML=html;
+            div1.innerHTML = "";
+        })
+        drop.addEventListener("dragstart",(e)=>{
+            e.dataTransfer.setData("text/html",e.target.outerHTML);
+        })
+        div1.addEventListener("dragover",(e)=>{
+            e.preventDefault();
+        })
+        div1.addEventListener("drop",(e)=>{
+            let html=e.dataTransfer.getData("text/html");
+            div1.innerHTML=html;
+            drop.innerHTML="";
+        })
+    </script>
+</body>
+
+</html>
